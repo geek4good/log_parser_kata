@@ -1,4 +1,10 @@
 #!/usr/bin/env ruby
 
+require "log_parser_kata"
+
 log_file = ARGV.first
 File.exist?(log_file) or exit(false)
+
+parser = LogParserKata::Parser.new(File.read(log_file))
+parser.paths_by_total_views
+

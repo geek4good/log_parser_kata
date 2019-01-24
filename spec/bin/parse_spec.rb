@@ -8,8 +8,8 @@ RSpec.describe "bin/parse" do
   it "parses a log file and outputs some useful stats" do
     stdout, status = Open3.capture2e(bin_parse, log_file)
 
-    expect(status.to_i).to eq(0)
     expect(stdout).to eq(output)
+    expect(status.to_i).to eq(0)
   end
 
   context "given argument doesn't exist" do
