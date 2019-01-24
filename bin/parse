@@ -1,1 +1,4 @@
 #!/usr/bin/env ruby
+
+log_file = ARGV.first
+File.exist?(log_file) or exit(false)
