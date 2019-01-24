@@ -3,12 +3,13 @@ require "open3"
 RSpec.describe "bin/parse" do
   subject(:bin_parse) { File.expand_path("../../../bin/parse", __FILE__) }
   let(:log_file) { File.expand_path("../../fixtures/webserver.log", __FILE__) }
+  let(:output) { File.read(File.expand_path("../../fixtures/output.txt", __FILE__)) }
 
   it "parses a log file and outputs some useful stats" do
-    output, status = Open3.capture2e(bin_parse, log_file)
+    stdout, status = Open3.capture2e(bin_parse, log_file)
 
-    expect(output).to eq("")
     expect(status.to_i).to eq(0)
+    expect(stdout).to eq(output)
   end
 
   context "given argument doesn't exist" do
