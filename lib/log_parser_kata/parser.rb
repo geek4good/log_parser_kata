@@ -1,9 +1,9 @@
 module LogParserKata
   class Parser
-    attr_reader :server_logs
+    attr_reader :server_log
 
-    def initialize(server_logs)
-      @server_logs = server_logs
+    def initialize(server_log)
+      @server_log = server_log
     end
   end
 end
