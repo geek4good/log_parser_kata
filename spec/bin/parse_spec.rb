@@ -15,7 +15,7 @@ RSpec.describe "bin/parse" do
     let(:log_file) { "non-existent-file" }
 
     it "returns a non-zero exit code" do
-      output, status = Open3.capture2e(bin_parse, log_file)
+      _, status = Open3.capture2e(bin_parse, log_file)
 
       expect(status.to_i).to_not eq(0)
     end
@@ -23,7 +23,7 @@ RSpec.describe "bin/parse" do
 
   context "no argument given" do
     it "returns a non-zero exit code" do
-      output, status = Open3.capture2e(bin_parse)
+      _, status = Open3.capture2e(bin_parse)
 
       expect(status.to_i).to_not eq(0)
     end
