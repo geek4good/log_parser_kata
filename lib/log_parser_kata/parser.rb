@@ -6,18 +6,16 @@ module LogParserKata
       @server_log = server_log
     end
 
-    def paths_by_total_views
-      @paths_by_total_views ||= log_lines_by_path.
+    def paths_with_total_views
+      @paths_with_total_views ||= log_lines_by_path.
         keys.
-        map { |path| [path, log_lines_by_path[path].size] }.
-        sort_by { |(path, views)| [-(views), path] }
+        map { |path| [path, log_lines_by_path[path].size] }
     end
 
-    def paths_by_unique_views
-      @paths_by_unique_views ||= log_lines_by_path.
+    def paths_with_unique_views
+      @paths_with_unique_views ||= log_lines_by_path.
         keys.
-        map { |path| [path, log_lines_by_path[path].uniq.size] }.
-        sort_by { |(path, views)| [-(views), path] }
+        map { |path| [path, log_lines_by_path[path].uniq.size] }
     end
 
     private

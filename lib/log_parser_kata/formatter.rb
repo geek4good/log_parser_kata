@@ -11,13 +11,19 @@ module LogParserKata
       <<~OUTPUT
       Paths by total views:
 
-      #{total_views.map { |entry| entry.join(" ") }.join("\n")}
+      #{order_by_views(total_views).map { |entry| entry.join(" ") }.join("\n")}
 
       Paths by unique views:
 
-      #{unique_views.map { |entry| entry.join(" ") }.join("\n")}
+      #{order_by_views(unique_views).map { |entry| entry.join(" ") }.join("\n")}
 
       OUTPUT
+    end
+
+    private
+
+    def order_by_views(log_entries)
+      log_entries.sort_by { |(path, views)| [-(views), path] }
     end
   end
 end

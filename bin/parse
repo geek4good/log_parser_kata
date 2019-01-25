@@ -9,7 +9,7 @@ File.exist?(log_file) or exit(false)
 
 parser = LogParserKata::Parser.new(File.read(log_file))
 formatter = LogParserKata::Formatter.new(
-  total_views: parser.paths_by_total_views,
-  unique_views: parser.paths_by_unique_views)
+  total_views: parser.paths_with_total_views,
+  unique_views: parser.paths_with_unique_views)
 
 puts formatter.to_s
