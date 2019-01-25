@@ -14,6 +14,14 @@ module LogParserKata
         reverse
     end
 
+    def paths_by_unique_views
+      @paths_by_unique_views ||= log_lines_by_path.
+        keys.
+        map { |path| [path, log_lines_by_path[path].uniq.size] }.
+        sort_by(&:last).
+        reverse
+    end
+
     private
 
     def log_lines
