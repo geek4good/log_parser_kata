@@ -4,6 +4,8 @@ I agree with Katrina Owen when she says, "Practice doesn't make perfect. Practic
 
 One other thing I tried while writing this code was following an approach originally reffered to as stacked diffs (see https://jg.gg/2018/09/29/stacked-diffs-versus-pull-requests/). But when using GitHub or similar tools, the way to simulate this approach is through stacked pull requests (see https://graysonkoonce.com/stacked-pull-requests-keeping-github-diffs-small/). The “stacked diff” workflow is a branching model that allows to build potentially big features as a whole without overwhelming the reviewer(s) by allowing them to review everything step by step. It also forces you into a more structured approach while writing the code, because every commit has to be meaningful and able to act as a building block for the code that follows. It was my first time trying this approach, so not every single commit was self-contained, but I've still learned something along the way. If you're interested you can see the progression through pull requests 1 – 3.
 
+I've switched between the classic GitHub flow and the stacked pull requests workflow to see which one feels better. That's why the different pull requests and commits directly to the master branch don't paint a coherent picture. Just thought I'd mention that.
+
 Usually it's a good idea to solve a fairly simple problem when practicing to not distract from the goal of the practice too much. Hence, this exercise revolves around a simple web server log file. The code I've written processes it to answer two questions:
 
 1. How many total views has every logged path accumulated?
